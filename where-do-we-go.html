@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where should we go?</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <script type='text/javascript' src='knockout-3.5.1.js'></script>
+    <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl">
+        Where should we go?
+    </h1>
+    <section
+        data-bind="foreach: foods"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 md:p-6">
+        <div >
+            <div class="bg-white rounded-lg shadow overflow-hidden" style="cursor: pointer;" data-bind="click: $parent.clickFood">
+                <div class="p-4">
+                    <div class="aspect-w-16 aspect-h-9 mb-4">
+                        <img class="object-cover rounded-lg" data-bind="attr: { alt: name, src: imgSrc }"></div>
+                    <h3 class="font-semibold text-lg md:text-xl" data-bind="text: name">
+                    </h3>
+                </div>
+                <div class="border-t border-gray-200"></div>
+            </div>
+        </div>
+    </section>
+    <script>
+        ko.applyBindings(new function() {
+            let self = this;
+            self.foods = [
+                {
+                    name: "Gogi",
+                    imgSrc: "images/foods/gogi.png"
+                },
+                {
+                    name: "Meat and Meet",
+                    imgSrc: "images/foods/meatNmeet.jpeg"
+                },
+                {
+                    name: "Mì Ý Double B",
+                    imgSrc: "images/foods/mi_y_doubleB.jpeg"
+                },
+                {
+                    name: "Xôi Bắc Peofood",
+                    imgSrc: "images/foods/peofood.jpeg"
+                },
+                {
+                    name: "Pizza",
+                    imgSrc: "images/foods/pizza.jpeg"
+                },
+                {
+                    name: "Kimbap",
+                    imgSrc: "images/foods/kimbap.jpeg"
+                },
+                {
+                    name: "Sushi",
+                    imgSrc: "images/foods/sushi.jpeg"
+                },
+                {
+                    name: "Vegan Buffet",
+                    imgSrc: "images/foods/vegan_buffet.jpeg"
+                }
+            ];
+            self.clickFood = function (food) {
+                location.href = "confirm.html?selected=" + food.name;
+            } 
+        })
+    </script>
+</body>
+
+</html>

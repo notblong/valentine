@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almost done!!!</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <script type='text/javascript' src='knockout-3.5.1.js'></script>
+    <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-2xl p-8 grid gap-4"
+        style="margin: auto;"
+        data-v0-t="card">
+        <div class="p-6 space-y-2">
+            <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl" data-bind="text: foodName">
+            </h1>
+            <p class="text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed" data-bind="text: desc"></p>
+        </div>
+        <iframe src="https://giphy.com/embed/peMsofRVIS4WQ" width="300" frameBorder="0" class="giphy-embed"></iframe><p><a href="https://giphy.com/gifs/90s-excited-peMsofRVIS4WQ"></a></p>
+        <!-- <div class="p-6 grid gap-1 text-sm md:gap-4 md:grid-cols-2">
+            <div class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="w-4 h-4 flex-shrink-0">
+                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                    <line x1="16" x2="16" y1="2" y2="6"></line>
+                    <line x1="8" x2="8" y1="2" y2="6"></line>
+                    <line x1="3" x2="21" y1="10" y2="10"></line>
+                </svg>
+                <dt class="font-medium">Date</dt>
+                <dd class="ml-auto text-right">March 15, 2023</dd>
+            </div>
+            <div class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="w-4 h-4 flex-shrink-0">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <dt class="font-medium">Time</dt>
+                <dd class="ml-auto text-right">7:00 PM</dd>
+            </div>
+        </div> -->
+        <!-- <div class="items-center p-6 flex justify-end">
+            <button
+                class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-purple-200">
+                <span
+                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+                    Yes!
+                </span>
+            </button>
+        </div> -->
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const selected = urlParams.get('selected');
+        const food = [
+            {
+                name: "Gogi",
+                imgSrc: "images/foods/gogi.png"
+            },
+            {
+                name: "Meat and Meet",
+                imgSrc: "images/foods/meatNmeet.jpeg"
+            },
+            {
+                name: "Mì Ý Double B",
+                imgSrc: "images/foods/mi_y_doubleB.jpeg"
+            },
+            {
+                name: "Xôi Bắc Peofood",
+                imgSrc: "images/foods/peofood.jpeg"
+            },
+            {
+                name: "Pizza",
+                imgSrc: "images/foods/pizza.jpeg"
+            },
+            {
+                name: "Kimbap",
+                imgSrc: "images/foods/kimbap.jpeg"
+            },
+            {
+                name: "Sushi",
+                imgSrc: "images/foods/sushi.jpeg"
+            },
+            {
+                name: "Vegan Buffet",
+                imgSrc: "images/foods/vegan_buffet.jpeg"
+            }
+        ].find(x => x.name === selected) ?? '[Chưa chọn]';
+        
+        let viewModel = {
+            foodName: ko.observable("Dinner at " + food.name),
+            foodImgSrc: ko.observable(food.imgSrc),
+            desc : ko.observable("Yayyyyyyyyyy, see you there babyboo~"),
+        };
+        ko.applyBindings(viewModel);
+        </script>
+</body>
+
+</html>
